@@ -1,0 +1,51 @@
+DOCKER
+
+https://gist.github.com/bradtraversy/89fad226dc058a41b596d586022a9bd3
+
+Commands:
+
+docker
+docker version
+docker info
+
+docker container run -it -p 80:80 nginx     (this will pull image and create container) (-it interactive)
+
+docker container ls			(docker ps)
+docker container ls -a   	(docker ps -a)
+
+docker container rm (first 3 characters of container id is enuf)
+
+docker images
+docker image rm 568c4670fa80
+
+docker pull nginx   (to manually pull image)
+
+
+docker container run -d -p 8080:80 --name mynginx nginx     (-d is detached, ie run in background)
+
+docker container run -d -p 3306:3306 --name mysql --env MYSQL_ROOT_PASSWORD=123456 mysql
+
+
+docker container stop (container name)
+
+HOW DO YOU EDIT FILES IN A CONTAINER? 
+>> Thru volume or bind mount
+
+docker container exec -it mynginx bash     >> (to enter the container) (type exit to exit)
+
+docker container run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html --name nginx-website nginx
+docker container run -d -p 8080:80 -v //c/PlayNLearn/dockerstuff:/usr/share/nginx/html --name nginx-website nginx
+
+Docker file
+
+docker image build -t (imagename) .
+
+docker push (imagename)
+
+docker login
+
+docker-compose up      (Ctrl+C stops both containers) (-d will run in background)
+
+docker-compose down    (docker network? )
+
+
